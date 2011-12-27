@@ -68,7 +68,8 @@ class ApiBase(object):
                                                             m['key'])
                 if description not in self.errors[m['context']]:
                     self.errors[m['context']].append(description)
-
+            elif  isinstance(m, str):
+                self.errors['base'].append(m)
 
     def _update_fields(self, xml_res):
         """
